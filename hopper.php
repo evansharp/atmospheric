@@ -35,4 +35,9 @@ $stm->execute(array($now, $temp, $hum, $press));
 
 die("success!");
 
+
+//DB Schema:
+// 1 table: "data", 5 rows:
+// id, time, temp_value, hum_value, press_value
+
 ?>
