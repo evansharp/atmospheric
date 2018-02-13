@@ -3,6 +3,11 @@ body{
   font-family: sans-serif;
 }
 h1{ text-align: center;}
+h2{ font-size: 1.2em;}
+ul.nav, ul.nav li{
+  list-style: none;
+  padding: 0;
+}
 
 .block{
   padding: 1em 1.75em;

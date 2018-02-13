@@ -11,8 +11,7 @@ require('api/yocto_pressure.php');
 
 
 //make db available
-$conn = new PDO('mysql:host=localhost;dbname=atmospheric','root','code');
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require('db_connect.php');
 
 YAPI::RegisterHub("callback");
 

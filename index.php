@@ -18,15 +18,14 @@ include('templates/header.php');
 if( $errmsg ){
   echo "<pre>$errmsg</pre>";
 }else{
-
+  
   $temp = yFirstTemperature()-> get_currentValue();
   $hum  = yFirstHumidity()-> get_currentValue();
   $pres = yFirstPressure()-> get_currentValue();
 }
 
 //make db available
-$conn = new PDO('mysql:host=localhost;dbname=atmospheric','root','code');
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require('db_connect.php');
 
 //get last hour of data (3600s)
 $postquem = time() - 3600;
@@ -59,6 +58,12 @@ $data = $stm->fetchAll(PDO::FETCH_ASSOC);
 <div class="block">
   <h2>Current Pressure</h2>
   <?php echo "$pres mm/hG <br>"; ?>
+</div>
+<div class="block">
+  <h2>Control</h2>
+  <ul class="nav">
+    <li><a href="actions.php?act=purge">purge database</a></li>
+  </ul>
 </div>
 
 
